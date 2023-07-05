@@ -3,6 +3,9 @@
 :root {
     --background-body: #0A2336;
     --btn-cor-padrao: #308DF4; 
+    --btn-cor-padrao-texto: #0A2336;
+    --btn-cor-marcado: black;
+    --btn-cor-marcado-texto: white;
 }
 
 * {
@@ -50,7 +53,7 @@ main .btn-jogar {
     width: 70px;
     height: 70px;
     background-color: var(--btn-cor-padrao);
-    color: var(--background-body);
+    color: var(--btn-cor-padrao-texto);
     font-size: 5rem;
     font-weight: bold;
     border-radius: 5px;
@@ -72,6 +75,11 @@ main .caixa-btns .btn-jogar {
 
 main .caixa-btns .btn-jogar:hover {
     transform: scale(1.03);
+}
+
+main .caixa-btns .btn-jogar.marcado {
+    background-color: var(--btn-cor-marcado);
+    color: var(--btn-cor-marcado-texto);
 }
 
 main .btns-jogo {

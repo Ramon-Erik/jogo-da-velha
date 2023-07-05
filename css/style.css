@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 :root {
     --background-body: #0A2336;
     --btn-cor-padrao: #308DF4; 
@@ -10,7 +12,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--background-body);
     color: var(--btn-cor-padrao);
 }
@@ -77,12 +79,13 @@ main .btns-jogo {
 }
 
 main .btns-jogo button {
-    width: 95px;
+    width: 120px;
     padding: 5px;
     border: none;
     border-radius: 4px;
     background-color: var(--btn-cor-padrao);
     color: var(--background-body);
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
     cursor: pointer;
 }

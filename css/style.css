@@ -1,0 +1,88 @@
+:root {
+    --background-body: #0A2336;
+    --btn-cor-padrao: #308DF4; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-body);
+    color: var(--btn-cor-padrao);
+}
+
+main {
+    max-width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h1 {
+    margin: 20px 0;
+}
+
+main .placar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 30px 0;
+}
+
+main .placar .vitorias {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+main .caixa-btns {
+    width: 241.9px;
+}
+
+main .btn-jogar {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background-color: var(--btn-cor-padrao);
+    color: var(--background-body);
+    font-size: 5rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+main .btn-jogar span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+
+main .caixa-btns .btn-jogar {
+    border: none;
+    cursor: pointer;
+    margin: 3.8px;
+    transition: all .3s;
+}
+
+main .caixa-btns .btn-jogar:hover {
+    transform: scale(1.03);
+}
+
+main .btns-jogo {
+    margin-top: 30px;
+}
+
+main .btns-jogo button {
+    width: 95px;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--btn-cor-padrao);
+    color: var(--background-body);
+    font-size: 1.1rem;
+    cursor: pointer;
+}

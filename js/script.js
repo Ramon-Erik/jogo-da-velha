@@ -17,6 +17,13 @@ function marcar(btn) {
     examinarTabuleiro()
 }
 
+function fimDeJogo(btn) {
+    btn.classList.add('marcado')
+    btns.forEach((b) => {
+        b.disabled = true
+    })
+}
+
 function examinarTabuleiro() {
     let valoresTabuleiro = []
     for (let i = 0; i < 9; i++) {
@@ -27,7 +34,7 @@ function examinarTabuleiro() {
         if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i+1] && valoresTabuleiro[i] === valoresTabuleiro[i+2]) {
             console.log(`Examinando linha ${i}: ${valoresTabuleiro[i]} - ${valoresTabuleiro[i+1]} - ${valoresTabuleiro[i+2]}`)
             for (let id = i; id <= i+2; id++) {
-                btns[id].classList.add('marcado')
+                fimDeJogo(btns[id])
             }
             break
         }
@@ -37,7 +44,7 @@ function examinarTabuleiro() {
         if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i+3] && valoresTabuleiro[i] === valoresTabuleiro[i+6]) {
             console.log(`Examinando coluna ${i}: ${valoresTabuleiro[i]} - ${valoresTabuleiro[i+3]} - ${valoresTabuleiro[i+6]}`)
             for (let id = i; id <= i+6; id+=3) {
-                btns[id].classList.add('marcado')
+                fimDeJogo(btns[id])
             }
             break
         }
@@ -45,13 +52,13 @@ function examinarTabuleiro() {
     // checando diagonal 0-4-8
     if ((valoresTabuleiro[0] !== '' && valoresTabuleiro[0] === valoresTabuleiro[4] && valoresTabuleiro[0] === valoresTabuleiro[8]) ) {
         for (let id = 0; id < 9; id+=4) {
-            btns[id].classList.add('marcado')
+            fimDeJogo(btns[id])
         }
     }
     // checando diagonal 2-4-6
     if ((valoresTabuleiro[2] !== '' && valoresTabuleiro[2] === valoresTabuleiro[4] && valoresTabuleiro[2] === valoresTabuleiro[6]) ) {
         for (let id = 2; id < 8; id+=2) {
-            btns[id].classList.add('marcado')
+            fimDeJogo(btns[id])
         }
     }
 }

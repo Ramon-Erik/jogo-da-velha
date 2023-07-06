@@ -34,9 +34,7 @@ function examinarTabuleiro() {
     }
     // checar colunas 1, 2 e 3
     for (let i = 0; i < 3; i++) {
-        if (valoresTabuleiro[i] !== '' &&
-        valoresTabuleiro[i] === valoresTabuleiro[i+3] &&
-        valoresTabuleiro[i] === valoresTabuleiro[i+6]) {
+        if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i+3] && valoresTabuleiro[i] === valoresTabuleiro[i+6]) {
             console.log(`Examinando coluna ${i}: ${valoresTabuleiro[i]} - ${valoresTabuleiro[i+3]} - ${valoresTabuleiro[i+6]}`)
             for (let id = i; id <= i+6; id+=3) {
                 btns[id].classList.add('marcado')
@@ -44,7 +42,20 @@ function examinarTabuleiro() {
             break
         }
     }
+    // checando diagonal 0-4-8
+    if ((valoresTabuleiro[0] !== '' && valoresTabuleiro[0] === valoresTabuleiro[4] && valoresTabuleiro[0] === valoresTabuleiro[8]) ) {
+        for (let id = 0; id < 9; id+=4) {
+            btns[id].classList.add('marcado')
+        }
+    }
+    // checando diagonal 2-4-6
+    if ((valoresTabuleiro[2] !== '' && valoresTabuleiro[2] === valoresTabuleiro[4] && valoresTabuleiro[2] === valoresTabuleiro[6]) ) {
+        for (let id = 2; id < 8; id+=2) {
+            btns[id].classList.add('marcado')
+        }
+    }
 }
+
 
 btnJogarNovamente.addEventListener('click', function () {
     btns.forEach((b) => {

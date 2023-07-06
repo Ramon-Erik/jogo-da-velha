@@ -30,4 +30,5 @@ Você pode jogar acessando [este link](https://ramon-erik.github.io/jogo-da-velh
 
 ## Licença
 
-Jogo da Velha é [licenciado por MIT](./LICENSE)
+Jogo da Velha é [licenciado por MIT](./LICENSE)  
+Ícone do site: [created by Freepik - Flaticon](https://www.flaticon.com/free-icons/tic-tac-toe)

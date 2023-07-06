@@ -11,10 +11,29 @@ function trocarPeca(p) {
 }
 
 function marcar(btn) {
-    btn.classList.add('marcado')
     btn.disabled = true
     btn.children[0].innerText = peca
     trocarPeca(peca)
+    examinarTabuleiro()
+}
+
+function examinarTabuleiro() {
+    let valoresTabuleiro = []
+    for (let i = 0; i < 9; i++) {
+        valoresTabuleiro.push(btns[i].children[0].innerText)
+    }
+    // horizontal (linhas 1, 2 e 3)
+    for (let i = 0; i < 9; i+=3) {
+        if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i+1] && valoresTabuleiro[i] === valoresTabuleiro[i+2]) {
+            console.log(`Examinando linha ${i}: ${valoresTabuleiro[i]} - ${valoresTabuleiro[i+1]} - ${valoresTabuleiro[i+2]}`)
+            for (let id = i; id <= i+2; id++) {
+                // console.log(`id: ${id} | ${btns[id].classList.add('marcado')}`)
+                btns[id].classList.add('marcado')
+            }
+            break
+        }
+    
+    }
 }
 
 btnJogarNovamente.addEventListener('click', function () {

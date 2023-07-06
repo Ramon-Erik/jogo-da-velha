@@ -2,10 +2,14 @@
 
 :root {
     --background-body: #0A2336;
+
     --btn-cor-padrao: #308DF4; 
     --btn-cor-padrao-texto: #0A2336;
-    --btn-cor-marcado: black;
-    --btn-cor-marcado-texto: white;
+    
+    --btn-cor-marcado: #000;
+    --btn-cor-marcado-texto: #fff;
+    
+    --cor-foter-link: #fff;
 }
 
 * {
@@ -96,4 +100,11 @@ main .btns-jogo button {
     font-size: 1.3rem;
     font-weight: 700;
     cursor: pointer;
+}
+
+footer * {
+    margin-top: 30px;
+    text-align: center;
+    font-size: .9rem;
+    color: var(--cor-foter-link);
 }

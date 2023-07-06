@@ -24,6 +24,13 @@ function fimDeJogo(btn, c) {
     })
 }
 
+function empate() {
+    btns.forEach((b) => {
+        b.classList.add('marcado')
+        b.disabled = true
+    })
+}
+
 function marcarPlacar(peca, call) {
     console.log('fui chamado: ' + call)
     switch (peca) {
@@ -43,8 +50,17 @@ function marcarPlacar(peca, call) {
 
 function examinarTabuleiro() {
     let valoresTabuleiro = []
+    let nEmpate = 0
     for (let i = 0; i < 9; i++) {
         valoresTabuleiro.push(btns[i].children[0].innerText)
+    }
+    // empate
+    console.log('verificando empate... ' + nEmpate)
+    for (let i = 0; i < 9; i++) {
+        if (valoresTabuleiro[i] !== '') {
+            nEmpate++
+        }
+        
     }
     // checar linhas 1, 2 e 3
     for (let i = 0; i < 9; i += 3) {
@@ -53,6 +69,7 @@ function examinarTabuleiro() {
                 fimDeJogo(btns[id], `em verificação de linhas ${i}`)
             }
             marcarPlacar(btns[i].children[0].innerText, `em verificação de linhas ${i}`)
+            nEmpate=0
             break
         }
     }
@@ -63,6 +80,7 @@ function examinarTabuleiro() {
                 fimDeJogo(btns[id], `em verificação de colunas ${i}`)
             }
             marcarPlacar(btns[i].children[0].innerText, `em verificação de colunas ${i}`)
+            nEmpate=0
             break
         }
     }
@@ -72,6 +90,7 @@ function examinarTabuleiro() {
             fimDeJogo(btns[id], `em verificação de diagonal 0`)
         }
         marcarPlacar(btns[0].children[0].innerText,`em verificação de diagonal 0`)
+        nEmpate=0
     }
     // checando diagonal 2-4-6
     if ((valoresTabuleiro[2] !== '' && valoresTabuleiro[2] === valoresTabuleiro[4] && valoresTabuleiro[2] === valoresTabuleiro[6])) {
@@ -79,6 +98,10 @@ function examinarTabuleiro() {
             fimDeJogo(btns[id], `em verificação de diagonal 2`)
         }
         marcarPlacar(btns[2].children[0].innerText,`em verificação de diagonal 2`)
+        nEmpate=0
+    }
+    if (nEmpate === 9) {
+        empate()
     }
 }
 

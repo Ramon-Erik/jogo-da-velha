@@ -32,7 +32,6 @@ function empate() {
 }
 
 function marcarPlacar(peca, call) {
-    console.log('fui chamado: ' + call)
     switch (peca) {
         case 'x':
             let placarX = document.querySelector('.placar-x')
@@ -43,6 +42,7 @@ function marcarPlacar(peca, call) {
             placarO.innerText = Number(placarO.innerText) + 1
             break;
         default:
+            alert('Erro ao somar placar. contate o desenvolvedor.')
             console.log('erro ao incrementar o placar de ' + peca)
             break;
     }
@@ -55,15 +55,13 @@ function examinarTabuleiro() {
         valoresTabuleiro.push(btns[i].children[0].innerText)
     }
     // empate
-    console.log('verificando empate... ' + nEmpate)
-    for (let i = 0; i < 9; i++) {
+    for (i = 0; i < 9; i++) {
         if (valoresTabuleiro[i] !== '') {
             nEmpate++
         }
-        
     }
     // checar linhas 1, 2 e 3
-    for (let i = 0; i < 9; i += 3) {
+    for (i = 0; i < 9; i += 3) {
         if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i + 1] && valoresTabuleiro[i] === valoresTabuleiro[i + 2]) {
             for (let id = i; id <= i + 2; id++) {
                 fimDeJogo(btns[id], `em verificação de linhas ${i}`)
@@ -74,9 +72,9 @@ function examinarTabuleiro() {
         }
     }
     // checar colunas 1, 2 e 3
-    for (let i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
         if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i + 3] && valoresTabuleiro[i] === valoresTabuleiro[i + 6]) {
-            for (let id = i; id <= i + 6; id += 3) {
+            for (id = i; id <= i + 6; id += 3) {
                 fimDeJogo(btns[id], `em verificação de colunas ${i}`)
             }
             marcarPlacar(btns[i].children[0].innerText, `em verificação de colunas ${i}`)
@@ -86,7 +84,7 @@ function examinarTabuleiro() {
     }
     // checando diagonal 0-4-8
     if ((valoresTabuleiro[0] !== '' && valoresTabuleiro[0] === valoresTabuleiro[4] && valoresTabuleiro[0] === valoresTabuleiro[8])) {
-        for (let id = 0; id < 9; id += 4) {
+        for (id = 0; id < 9; id += 4) {
             fimDeJogo(btns[id], `em verificação de diagonal 0`)
         }
         marcarPlacar(btns[0].children[0].innerText,`em verificação de diagonal 0`)
@@ -94,7 +92,7 @@ function examinarTabuleiro() {
     }
     // checando diagonal 2-4-6
     if ((valoresTabuleiro[2] !== '' && valoresTabuleiro[2] === valoresTabuleiro[4] && valoresTabuleiro[2] === valoresTabuleiro[6])) {
-        for (let id = 2; id < 8; id += 2) {
+        for (id = 2; id < 8; id += 2) {
             fimDeJogo(btns[id], `em verificação de diagonal 2`)
         }
         marcarPlacar(btns[2].children[0].innerText,`em verificação de diagonal 2`)

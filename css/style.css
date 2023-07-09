@@ -6,6 +6,8 @@
     --btn-cor-padrao: #308DF4; 
     --btn-cor-padrao-texto: #0A2336;
     
+    ---cor-peca-a-jogar: #1f64b3;
+    
     --btn-cor-marcado: #000;
     --btn-cor-marcado-texto: #fff;
     
@@ -41,6 +43,11 @@ main .placar {
     gap: 20px;
     align-items: center;
     margin: 30px 0;
+}
+
+main .placar .btn-x.peca-atual,
+main .placar .btn-o.peca-atual{
+    background-color: var(---cor-peca-a-jogar);
 }
 
 main .placar .vitorias {

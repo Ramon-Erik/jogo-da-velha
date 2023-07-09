@@ -1,11 +1,17 @@
 const btnJogarNovamente = document.querySelector('.jogar-novamente')
 const pecasJogadas = document.querySelectorAll('button.btn-jogar')
-let peca = 'x'
+let peca = 'o'
+
+trocarPeca(peca)
 
 function trocarPeca(p) {
     if (p === 'x') {
+        document.querySelector('.btn-x').classList.remove('peca-atual')
+        document.querySelector('.btn-o').classList.add('peca-atual')
         peca = 'o'
     } else {
+        document.querySelector('.btn-o').classList.remove('peca-atual')
+        document.querySelector('.btn-x').classList.add('peca-atual')
         peca = 'x'
     }
 }
@@ -111,8 +117,8 @@ btnJogarNovamente.addEventListener('click', function () {
         b.classList.remove('marcado')
         b.disabled = false
         b.children[0].innerText = ''
-        peca = 'x'
     })
+    trocarPeca(peca)
 })
 
 pecasJogadas.forEach((btn) => {

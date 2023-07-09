@@ -49,21 +49,24 @@ function marcarPlacar(peca, call) {
 }
 
 function examinarTabuleiro() {
-    let valoresTabuleiro = []
+    let pecasNoTabuleiro = []
+    // contadores nos loops
+    let i = 0
+    let id = 0
     let nEmpate = 0
     for (let i = 0; i < 9; i++) {
-        valoresTabuleiro.push(btns[i].children[0].innerText)
+        pecasNoTabuleiro.push(btns[i].children[0].innerText)
     }
     // empate
     for (i = 0; i < 9; i++) {
-        if (valoresTabuleiro[i] !== '') {
+        if (pecasNoTabuleiro[i] !== '') {
             nEmpate++
         }
     }
     // checar linhas 1, 2 e 3
     for (i = 0; i < 9; i += 3) {
-        if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i + 1] && valoresTabuleiro[i] === valoresTabuleiro[i + 2]) {
-            for (let id = i; id <= i + 2; id++) {
+        if (pecasNoTabuleiro[i] !== '' && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 1] && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 2]) {
+            for (id = i; id <= i + 2; id++) {
                 fimDeJogo(btns[id], `em verificação de linhas ${i}`)
             }
             marcarPlacar(btns[i].children[0].innerText, `em verificação de linhas ${i}`)
@@ -73,7 +76,7 @@ function examinarTabuleiro() {
     }
     // checar colunas 1, 2 e 3
     for (i = 0; i < 3; i++) {
-        if (valoresTabuleiro[i] !== '' && valoresTabuleiro[i] === valoresTabuleiro[i + 3] && valoresTabuleiro[i] === valoresTabuleiro[i + 6]) {
+        if (pecasNoTabuleiro[i] !== '' && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 3] && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 6]) {
             for (id = i; id <= i + 6; id += 3) {
                 fimDeJogo(btns[id], `em verificação de colunas ${i}`)
             }
@@ -83,7 +86,7 @@ function examinarTabuleiro() {
         }
     }
     // checando diagonal 0-4-8
-    if ((valoresTabuleiro[0] !== '' && valoresTabuleiro[0] === valoresTabuleiro[4] && valoresTabuleiro[0] === valoresTabuleiro[8])) {
+    if ((pecasNoTabuleiro[0] !== '' && pecasNoTabuleiro[0] === pecasNoTabuleiro[4] && pecasNoTabuleiro[0] === pecasNoTabuleiro[8])) {
         for (id = 0; id < 9; id += 4) {
             fimDeJogo(btns[id], `em verificação de diagonal 0`)
         }
@@ -91,7 +94,7 @@ function examinarTabuleiro() {
         nEmpate=0
     }
     // checando diagonal 2-4-6
-    if ((valoresTabuleiro[2] !== '' && valoresTabuleiro[2] === valoresTabuleiro[4] && valoresTabuleiro[2] === valoresTabuleiro[6])) {
+    if ((pecasNoTabuleiro[2] !== '' && pecasNoTabuleiro[2] === pecasNoTabuleiro[4] && pecasNoTabuleiro[2] === pecasNoTabuleiro[6])) {
         for (id = 2; id < 8; id += 2) {
             fimDeJogo(btns[id], `em verificação de diagonal 2`)
         }

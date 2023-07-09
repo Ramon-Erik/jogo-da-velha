@@ -48,6 +48,7 @@ main .placar {
 main .placar .btn-x.peca-atual,
 main .placar .btn-o.peca-atual{
     background-color: var(---cor-peca-a-jogar);
+    animation: pulsar 3s ease infinite;
 }
 
 main .placar .vitorias {
@@ -114,4 +115,13 @@ footer * {
     text-align: center;
     font-size: .9rem;
     color: var(--cor-foter-link);
+}
+
+@keyframes pulsar {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }

@@ -1,5 +1,5 @@
-let btnJogarNovamente = document.querySelector('.jogar-novamente')
-let btns = document.querySelectorAll('button.btn-jogar')
+const btnJogarNovamente = document.querySelector('.jogar-novamente')
+const pecasJogadas = document.querySelectorAll('button.btn-jogar')
 let peca = 'x'
 
 function trocarPeca(p) {
@@ -19,13 +19,13 @@ function marcar(btn) {
 
 function fimDeJogo(btn, c) {
     btn.classList.add('marcado')
-    btns.forEach((b) => {
+    pecasJogadas.forEach((b) => {
         b.disabled = true
     })
 }
 
 function empate() {
-    btns.forEach((b) => {
+    pecasJogadas.forEach((b) => {
         b.classList.add('marcado')
         b.disabled = true
     })
@@ -55,7 +55,7 @@ function examinarTabuleiro() {
     let id = 0
     let nEmpate = 0
     for (let i = 0; i < 9; i++) {
-        pecasNoTabuleiro.push(btns[i].children[0].innerText)
+        pecasNoTabuleiro.push(pecasJogadas[i].children[0].innerText)
     }
     // empate
     for (i = 0; i < 9; i++) {
@@ -67,9 +67,9 @@ function examinarTabuleiro() {
     for (i = 0; i < 9; i += 3) {
         if (pecasNoTabuleiro[i] !== '' && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 1] && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 2]) {
             for (id = i; id <= i + 2; id++) {
-                fimDeJogo(btns[id], `em verificação de linhas ${i}`)
+                fimDeJogo(pecasJogadas[id], `em verificação de linhas ${i}`)
             }
-            marcarPlacar(btns[i].children[0].innerText, `em verificação de linhas ${i}`)
+            marcarPlacar(pecasJogadas[i].children[0].innerText, `em verificação de linhas ${i}`)
             nEmpate=0
             break
         }
@@ -78,9 +78,9 @@ function examinarTabuleiro() {
     for (i = 0; i < 3; i++) {
         if (pecasNoTabuleiro[i] !== '' && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 3] && pecasNoTabuleiro[i] === pecasNoTabuleiro[i + 6]) {
             for (id = i; id <= i + 6; id += 3) {
-                fimDeJogo(btns[id], `em verificação de colunas ${i}`)
+                fimDeJogo(pecasJogadas[id], `em verificação de colunas ${i}`)
             }
-            marcarPlacar(btns[i].children[0].innerText, `em verificação de colunas ${i}`)
+            marcarPlacar(pecasJogadas[i].children[0].innerText, `em verificação de colunas ${i}`)
             nEmpate=0
             break
         }
@@ -88,17 +88,17 @@ function examinarTabuleiro() {
     // checando diagonal 0-4-8
     if ((pecasNoTabuleiro[0] !== '' && pecasNoTabuleiro[0] === pecasNoTabuleiro[4] && pecasNoTabuleiro[0] === pecasNoTabuleiro[8])) {
         for (id = 0; id < 9; id += 4) {
-            fimDeJogo(btns[id], `em verificação de diagonal 0`)
+            fimDeJogo(pecasJogadas[id], `em verificação de diagonal 0`)
         }
-        marcarPlacar(btns[0].children[0].innerText,`em verificação de diagonal 0`)
+        marcarPlacar(pecasJogadas[0].children[0].innerText,`em verificação de diagonal 0`)
         nEmpate=0
     }
     // checando diagonal 2-4-6
     if ((pecasNoTabuleiro[2] !== '' && pecasNoTabuleiro[2] === pecasNoTabuleiro[4] && pecasNoTabuleiro[2] === pecasNoTabuleiro[6])) {
         for (id = 2; id < 8; id += 2) {
-            fimDeJogo(btns[id], `em verificação de diagonal 2`)
+            fimDeJogo(pecasJogadas[id], `em verificação de diagonal 2`)
         }
-        marcarPlacar(btns[2].children[0].innerText,`em verificação de diagonal 2`)
+        marcarPlacar(pecasJogadas[2].children[0].innerText,`em verificação de diagonal 2`)
         nEmpate=0
     }
     if (nEmpate === 9) {
@@ -106,9 +106,8 @@ function examinarTabuleiro() {
     }
 }
 
-
 btnJogarNovamente.addEventListener('click', function () {
-    btns.forEach((b) => {
+    pecasJogadas.forEach((b) => {
         b.classList.remove('marcado')
         b.disabled = false
         b.children[0].innerText = ''
@@ -116,7 +115,7 @@ btnJogarNovamente.addEventListener('click', function () {
     })
 })
 
-btns.forEach((btn) => {
+pecasJogadas.forEach((btn) => {
     btn.addEventListener('click', function () {
         marcar(btn)
     })

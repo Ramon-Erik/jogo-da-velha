@@ -24,6 +24,7 @@ function marcar(btn) {
 }
 
 function fimDeJogo(btn, c) {
+    trocarPeca(peca)
     btn.classList.add('marcado')
     pecasJogadas.forEach((b) => {
         b.disabled = true
@@ -37,7 +38,7 @@ function empate() {
     })
 }
 
-function marcarPlacar(peca, call) {
+function marcarPlacar(peca, chamado) {
     switch (peca) {
         case 'x':
             let placarX = document.querySelector('.placar-x')
@@ -49,7 +50,7 @@ function marcarPlacar(peca, call) {
             break;
         default:
             alert('Erro ao somar placar. contate o desenvolvedor.')
-            console.log('erro ao incrementar o placar de ' + peca)
+            console.log(`Quem chamou: ${chamado}. erro ao incrementar o placar de ${peca}`)
             break;
     }
 }
@@ -113,6 +114,8 @@ function examinarTabuleiro() {
 }
 
 btnJogarNovamente.addEventListener('click', function () {
+    const audio = document.querySelector('audio')
+    audio.play()
     pecasJogadas.forEach((b) => {
         b.classList.remove('marcado')
         b.disabled = false

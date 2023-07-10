@@ -1,6 +1,8 @@
 # Jogo da Velha
 
-Imagem de capa;
+<p style="text-align: center;">
+    <img src="https://i.imgur.com/BgxgABc.png" alt="foto do site">
+</p>
 
 ![Static Badge](https://img.shields.io/badge/license-MIT-blue)
 ![Static Badge](https://img.shields.io/badge/game-for_fun-blue)
@@ -31,4 +33,5 @@ Você pode jogar acessando [este link](https://ramon-erik.github.io/jogo-da-velh
 ## Licença
 
 Jogo da Velha é [licenciado por MIT](./LICENSE)  
-Ícone do site: [created by Freepik - Flaticon](https://www.flaticon.com/free-icons/tic-tac-toe)
+Ícone do site: [created by Freepik - Flaticon](https://www.flaticon.com/free-icons/tic-tac-toe)  
+Som no botão: [salamisound](https://www.salamisound.com/pt/1020064-clique-com-o-bot%C3%A3o-esquerdo)

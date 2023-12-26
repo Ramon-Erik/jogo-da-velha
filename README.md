@@ -14,7 +14,7 @@ Um jogo para se formar trios de peças iguais para ganhar. Pode ser em linhas, c
 
 ## Como jogar?
 
-O jogo é de dois jogadores, cada um com sua peça (X ou O). O jagor deve tentar marcar três caixas proximas com sua peça para pontuar. Ganha quem fizer conseguir marcar um trio. Caso todas os espaços do tabuleiro tenham sido marcados, deu velha, no caso, empate.
+O jogo é de dois jogadores, cada um com sua peça (X ou O). O jogador deve tentar marcar três caixas proximas com sua peça para pontuar. Ganha quem fizer conseguir marcar um trio. Caso todas os espaços do tabuleiro tenham sido marcados, deu velha, no caso, empate.
 
 ## Onde jogar?
 
